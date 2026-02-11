@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Your personal Twitter-like journal">
+    <meta name="theme-color" content="#1da1f2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MyTwitter">
+    <title>Personal Twitter</title>
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlBlcnNvbmFsIFR3aXR0ZXIiLAogICJzaG9ydF9uYW1lIjogIk15VHdpdHRlciIsCiAgImRlc2NyaXB0aW9uIjogIllvdXIgcGVyc29uYWwgVHdpdHRlci1saWtlIGpvdXJuYWwiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzE1MjAyYiIsCiAgInRoZW1lX2NvbG9yIjogIiMxZGExZjIiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdC1wcmltYXJ5IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxOTIgMTkyJyUzRSUzQ3JlY3QgZmlsbD0nJTIzMWRhMWYyJyB3aWR0aD0nMTkyJyBoZWlnaHQ9JzE5Micgcng9JzQwJy8lM0UlM0NwYXRoIGZpbGw9JyUyM2ZmZicgZD0nTTE1NC43IDU5LjNjLTUgMi4yLTEwLjQgMy43LTE2IDQuNCA1LjctMy40IDEwLjEtOC44IDEyLjItMTUuMy01LjQgMy4yLTExLjMgNS41LTE3LjYgNi43LTUuMS01LjQtMTIuMy04LjgtMjAuMy04LjgtMTUuNCAwLTI3LjkgMTIuNS0yNy45IDI3LjkgMCAyLjIuMiA0LjMuNyA2LjMtMjMuMi0xLjItNDMuNy0xMi4zLTU3LjUtMjkuMi0yLjQgNC4xLTMuOCA4LjgtMy44IDEzLjkgMCA5LjcgNC45IDE4LjIgMTIuNCAyMy4yLTQuNi0uMS04LjktMS40LTEyLjYtMy41di40YzAgMTMuNSA5LjYgMjQuOCAyMi40IDI3LjQtMi4zLjYtNC44IDEtNy4zIDEtMS44IDAtMy41LS4yLTUuMi0uNSAzLjUgMTEgMTMuOCAxOSAyNS45IDE5LjMtOS41IDcuNC0yMS41IDExLjgtMzQuNSAxMS44LTIuMiAwLTQuNC0uMS02LjYtLjQgMTIuMyA3LjkgMjYuOSAxMi41IDQyLjYgMTIuNSA1MS4xIDAgNzktNDIuMyA3OS03OSAwLTEuMiAwLTIuNC0uMS0zLjYgNS40LTMuOSAxMC4xLTguOCAxMy44LTE0LjR6Jy8lM0UlM0Mvc3ZnJTNFIiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwKICAgICAgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInJTNFJTNDcmVjdCBmaWxsPSclMjMxZGExZjInIHdpZHRoPSc1MTInIGhlaWdodD0nNTEyJyByeD0nMTAwJy8lM0UlM0NwYXRoIGZpbGw9JyUyM2ZmZicgZD0nTTQxMiAxNzFjLTEzIDYtMjcgMTAtNDIgMTEgMTUtOSAyNy0yMyAzMi00MC0xNCA4LTMwIDE0LTQ3IDE3LTEzLTE0LTMyLTIzLTUzLTIzLTQwIDAtNzMgMzMtNzMgNzMgMCA2IDEgMTEgMiAxNi02MS0zLTExNS0zMi0xNTEtNzctNiAxMS0xMCAyMy0xMCAzNiAwIDI1IDEzIDQ4IDMzIDYxLTEyIDAtMjMtNC0zMy05djFjMCAzNSAyNSA2NSA1OSA3Mi02IDItMTMgMy0xOSAzLTUgMC05LTEtMTQtMSA5IDI5IDM2IDUwIDY4IDUxLTI1IDE5LTU3IDMxLTkxIDMxLTYgMC0xMiAwLTE3LTEgMzIgMjEgNzEgMzMgMTEyIDMzIDEzNSAwIDIwOS0xMTIgMjA5LTIwOSAwLTMgMC02IDAtOSAxNC0xMCAyNy0yMyAzNy0zOHonLyUzRSUzQy9zdmclM0UiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFza2FibGUiCiAgICB9CiAgXQp9">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect fill='%231da1f2' width='192' height='192' rx='40'/%3E%3Cpath fill='%23fff' d='M154.7 59.3c-5 2.2-10.4 3.7-16 4.4 5.7-3.4 10.1-8.8 12.2-15.3-5.4 3.2-11.3 5.5-17.6 6.7-5.1-5.4-12.3-8.8-20.3-8.8-15.4 0-27.9 12.5-27.9 27.9 0 2.2.2 4.3.7 6.3-23.2-1.2-43.7-12.3-57.5-29.2-2.4 4.1-3.8 8.8-3.8 13.9 0 9.7 4.9 18.2 12.4 23.2-4.6-.1-8.9-1.4-12.6-3.5v.4c0 13.5 9.6 24.8 22.4 27.4-2.3.6-4.8 1-7.3 1-1.8 0-3.5-.2-5.2-.5 3.5 11 13.8 19 25.9 19.3-9.5 7.4-21.5 11.8-34.5 11.8-2.2 0-4.4-.1-6.6-.4 12.3 7.9 26.9 12.5 42.6 12.5 51.1 0 79-42.3 79-79 0-1.2 0-2.4-.1-3.6 5.4-3.9 10.1-8.8 13.8-14.4z'/%3E%3C/svg%3E">
+    <style>
+        /* ===================================
+           GLOBAL STYLES & VARIABLES
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Twitter-inspired dark mode colors */
+            --bg-primary: #15202b;
+            --bg-secondary: #192734;
+            --bg-hover: #1e2732;
+            --text-primary: #ffffff;
+            --text-secondary: #8899a6;
+            --border-color: #38444d;
+            --accent-blue: #1da1f2;
+            --accent-blue-hover: #1a8cd8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            /* iOS safe area support */
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            /* Prevent pull-to-refresh on mobile */
+            overscroll-behavior-y: contain;
+            /* Smooth scrolling */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* ===================================
+           PROFILE SECTION
+           =================================== */
+        .profile-section {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* Banner/Header Image */
+        .profile-banner {
+            width: 100%;
+            height: 200px;
+            background-color: var(--bg-secondary);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .profile-banner:hover::after {
+            content: 'Click to change banner';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Profile Info Container */
+        .profile-info {
+            padding: 0 16px;
+            position: relative;
+        }
+
+        /* Profile Picture */
+        .profile-picture-container {
+            position: relative;
+            width: 134px;
+            height: 134px;
+            margin-top: -67px;
+            margin-bottom: 12px;
+        }
+
+        .profile-picture {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+            background-color: var(--bg-secondary);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .profile-picture:hover::after {
+            content: 'Change photo';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            width: 100px;
+            text-align: center;
+        }
+
+        /* Profile Details */
+        .profile-details {
+            margin-top: 12px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 28px;
+            cursor: text;
+        }
+
+        .profile-name:hover,
+        .profile-name:focus {
+            background-color: var(--bg-hover);
+            outline: 1px solid var(--border-color);
+        }
+
+        .profile-handle {
+            color: var(--text-secondary);
+            font-size: 15px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 23px;
+            cursor: text;
+        }
+
+        .profile-handle:hover,
+        .profile-handle:focus {
+            background-color: var(--bg-hover);
+            outline: 1px solid var(--border-color);
+        }
+
+        .profile-bio {
+            margin-top: 12px;
+            font-size: 15px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 23px;
+            cursor: text;
+        }
+
+        .profile-bio:hover,
+        .profile-bio:focus {
+            background-color: var(--bg-hover);
+            outline: 1px solid var(--border-color);
+        }
+
+        .profile-name:empty::before {
+            content: 'Click to add name';
+            color: var(--text-secondary);
+        }
+
+        .profile-handle:empty::before {
+            content: 'Click to add handle';
+            color: var(--text-secondary);
+        }
+
+        .profile-bio:empty::before {
+            content: 'Click to add bio';
+            color: var(--text-secondary);
+        }
+
+        /* ===================================
+           TWEET COMPOSER
+           =================================== */
+        .composer-section {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px;
+            background-color: var(--bg-primary);
+        }
+
+        .composer-textarea {
+            width: 100%;
+            min-height: 100px;
+            background-color: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+            padding: 8px;
+        }
+
+        .composer-textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .composer-image-preview {
+            margin-top: 12px;
+            position: relative;
+            display: none;
+        }
+
+        .composer-image-preview img {
+            width: 100%;
+            border-radius: 16px;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .composer-image-preview .remove-image {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .composer-image-preview .remove-image:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .composer-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .composer-controls-left {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .image-upload-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-blue);
+            cursor: pointer;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-upload-btn:hover {
+            background-color: rgba(29, 161, 242, 0.1);
+        }
+
+        .char-counter {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .char-counter.warning {
+            color: #ffad1f;
+        }
+
+        .char-counter.error {
+            color: #f4212e;
+        }
+
+        .post-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .post-btn:hover {
+            background-color: var(--accent-blue-hover);
+        }
+
+        .post-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ===================================
+           TIMELINE
+           =================================== */
+        .timeline-section {
+            padding-top: 16px;
+        }
+
+        .timeline-header {
+            padding: 0 16px 12px;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tweet {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            gap: 12px;
+        }
+
+        .tweet:hover {
+            background-color: var(--bg-hover);
+        }
+
+        .tweet-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .tweet-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            margin-bottom: 2px;
+        }
+
+        .tweet-author {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .tweet-handle {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .tweet-timestamp {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .tweet-timestamp::before {
+            content: '·';
+            margin: 0 4px;
+        }
+
+        .tweet-content {
+            margin: 2px 0 0 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .tweet-image {
+            margin-top: 12px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .tweet-image img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tweet-delete {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .tweet:hover .tweet-delete {
+            opacity: 1;
+        }
+
+        .tweet-delete:hover {
+            background-color: rgba(244, 33, 46, 0.1);
+            color: #f4212e;
+        }
+
+        .empty-timeline {
+            text-align: center;
+            padding: 40px 16px;
+            color: var(--text-secondary);
+        }
+
+        /* ===================================
+           IMAGE MODAL
+           =================================== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* ===================================
+           HIDDEN FILE INPUTS
+           =================================== */
+        .hidden-input {
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Hidden file inputs -->
+    <input type="file" id="bannerInput" class="hidden-input" accept="image/*">
+    <input type="file" id="profilePicInput" class="hidden-input" accept="image/*">
+    <input type="file" id="tweetImageInput" class="hidden-input" accept="image/*">
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <div class="profile-banner" id="profileBanner"></div>
+        
+        <div class="profile-info">
+            <div class="profile-picture-container">
+                <div class="profile-picture" id="profilePicture"></div>
+            </div>
+            
+            <div class="profile-details">
+                <div class="profile-name" id="profileName" contenteditable="true">My Personal Journal</div>
+                <div class="profile-handle" id="profileHandle" contenteditable="true">@me</div>
+                <div class="profile-bio" id="profileBio" contenteditable="true">My thoughts, my space.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tweet Composer -->
+    <div class="composer-section">
+        <textarea 
+            class="composer-textarea" 
+            id="tweetTextarea" 
+            placeholder="What's on your mind?"
+            maxlength="700"
+        ></textarea>
+        
+        <div class="composer-image-preview" id="composerImagePreview">
+            <img id="composerImageDisplay" src="" alt="Tweet image">
+            <button class="remove-image" id="removeComposerImage">×</button>
+        </div>
+        
+        <div class="composer-controls">
+            <div class="composer-controls-left">
+                <button class="image-upload-btn" id="addImageBtn" title="Add image">📷</button>
+                <span class="char-counter" id="charCounter">0/700</span>
+            </div>
+            <button class="post-btn" id="postBtn">Post</button>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline-section">
+        <div class="timeline-header">Timeline</div>
+        <div id="timeline">
+            <div class="empty-timeline">No posts yet. Share your first thought!</div>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <img id="modalImage" src="" alt="Full size image">
+    </div>
+
+    <script>
+        /* ===================================
+           APPLICATION STATE
+           All data is stored in the #appStateData script tag below
+           Changes update that tag in real-time
+           To persist, just save this HTML file (Ctrl+S or Cmd+S)
+           =================================== */
+        let appState = {
+            profile: {
+                name: 'My Personal Journal',
+                handle: '@me',
+                bio: 'My thoughts, my space.',
+                bannerImage: '',
+                profileImage: ''
+            },
+            tweets: []
+        };
+
+        /* ===================================
+           DOM ELEMENTS
+           =================================== */
+        const elements = {
+            profileBanner: document.getElementById('profileBanner'),
+            profilePicture: document.getElementById('profilePicture'),
+            profileName: document.getElementById('profileName'),
+            profileHandle: document.getElementById('profileHandle'),
+            profileBio: document.getElementById('profileBio'),
+            bannerInput: document.getElementById('bannerInput'),
+            profilePicInput: document.getElementById('profilePicInput'),
+            tweetImageInput: document.getElementById('tweetImageInput'),
+            tweetTextarea: document.getElementById('tweetTextarea'),
+            composerImagePreview: document.getElementById('composerImagePreview'),
+            composerImageDisplay: document.getElementById('composerImageDisplay'),
+            removeComposerImage: document.getElementById('removeComposerImage'),
+            addImageBtn: document.getElementById('addImageBtn'),
+            charCounter: document.getElementById('charCounter'),
+            postBtn: document.getElementById('postBtn'),
+            timeline: document.getElementById('timeline'),
+            imageModal: document.getElementById('imageModal'),
+            modalImage: document.getElementById('modalImage')
+        };
+
+        let composerImageData = null;
+
+        /* ===================================
+           INITIALIZATION
+           Load data from localStorage (PWA) or embedded state script
+           =================================== */
+        function init() {
+            // Try to load from localStorage first (for PWA)
+            try {
+                const savedData = localStorage.getItem('personalTwitterData');
+                if (savedData) {
+                    appState = JSON.parse(savedData);
+                }
+            } catch (e) {
+                console.error('Failed to load from localStorage:', e);
+            }
+            
+            // Fallback to embedded state script if localStorage is empty
+            if (!appState.tweets || appState.tweets.length === 0) {
+                const stateScript = document.getElementById('appStateData');
+                if (stateScript) {
+                    try {
+                        const embeddedState = JSON.parse(stateScript.textContent);
+                        if (embeddedState.tweets && embeddedState.tweets.length > 0) {
+                            appState = embeddedState;
+                        }
+                    } catch (e) {
+                        console.error('Failed to load embedded state:', e);
+                    }
+                }
+            }
+            
+            loadProfile();
+            renderTimeline();
+            setupEventListeners();
+            updateCharCounter();
+        }
+
+        /* ===================================
+           PROFILE MANAGEMENT
+           =================================== */
+        function loadProfile() {
+            elements.profileName.textContent = appState.profile.name;
+            elements.profileHandle.textContent = appState.profile.handle;
+            elements.profileBio.textContent = appState.profile.bio;
+            
+            if (appState.profile.bannerImage) {
+                elements.profileBanner.style.backgroundImage = `url(${appState.profile.bannerImage})`;
+            }
+            if (appState.profile.profileImage) {
+                elements.profilePicture.style.backgroundImage = `url(${appState.profile.profileImage})`;
+            }
+        }
+
+        function saveProfileData() {
+            appState.profile.name = elements.profileName.textContent || 'My Personal Journal';
+            appState.profile.handle = elements.profileHandle.textContent || '@me';
+            appState.profile.bio = elements.profileBio.textContent || '';
+            updateStateInHTML();
+        }
+
+        /* ===================================
+           IMAGE HANDLING
+           Convert images to Base64 for embedding in HTML
+           =================================== */
+        function handleImageUpload(file, callback) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('Please select a valid image file');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                callback(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        /* ===================================
+           TWEET COMPOSER
+           =================================== */
+        function updateCharCounter() {
+            const length = elements.tweetTextarea.value.length;
+            elements.charCounter.textContent = `${length}/700`;
+            
+            elements.charCounter.classList.remove('warning', 'error');
+            if (length > 650) {
+                elements.charCounter.classList.add('warning');
+            }
+            if (length > 690) {
+                elements.charCounter.classList.add('error');
+            }
+            
+            elements.postBtn.disabled = length === 0;
+        }
+
+        function showComposerImage(imageData) {
+            composerImageData = imageData;
+            elements.composerImageDisplay.src = imageData;
+            elements.composerImagePreview.style.display = 'block';
+        }
+
+        function removeComposerImageHandler() {
+            composerImageData = null;
+            elements.composerImageDisplay.src = '';
+            elements.composerImagePreview.style.display = 'none';
+            elements.tweetImageInput.value = '';
+        }
+
+        function postTweet() {
+            const content = elements.tweetTextarea.value.trim();
+            
+            if (!content) {
+                return;
+            }
+
+            // Create new tweet
+            const tweet = {
+                id: Date.now(),
+                content: content,
+                timestamp: new Date().toISOString(),
+                image: composerImageData || null
+            };
+
+            // Add to tweets array
+            appState.tweets.unshift(tweet);
+
+            // Clear composer
+            elements.tweetTextarea.value = '';
+            removeComposerImageHandler();
+            updateCharCounter();
+
+            // Re-render timeline
+            renderTimeline();
+
+            // Update the embedded state
+            updateStateInHTML();
+        }
+
+        /* ===================================
+           TIMELINE RENDERING
+           =================================== */
+        function renderTimeline() {
+            elements.timeline.innerHTML = '';
+
+            if (appState.tweets.length === 0) {
+                elements.timeline.innerHTML = '<div class="empty-timeline">No posts yet. Share your first thought!</div>';
+                return;
+            }
+
+            appState.tweets.forEach(tweet => {
+                const tweetEl = createTweetElement(tweet);
+                elements.timeline.appendChild(tweetEl);
+            });
+        }
+
+        function createTweetElement(tweet) {
+            const tweetDiv = document.createElement('div');
+            tweetDiv.className = 'tweet';
+
+            const date = new Date(tweet.timestamp);
+            const timeString = formatTimestamp(date);
+
+            // Get profile image or use default background
+            const profileImageStyle = appState.profile.profileImage 
+                ? `background-image: url(${appState.profile.profileImage});` 
+                : '';
+
+            let tweetHTML = `
+                <div class="tweet-avatar" style="${profileImageStyle}"></div>
+                <div class="tweet-body">
+                    <button class="tweet-delete" data-tweet-id="${tweet.id}">×</button>
+                    <div class="tweet-header">
+                        <span class="tweet-author">${escapeHTML(appState.profile.name)}</span>
+                        <span class="tweet-handle">${escapeHTML(appState.profile.handle)}</span>
+                        <span class="tweet-timestamp">${timeString}</span>
+                    </div>
+                    <div class="tweet-content">${escapeHTML(tweet.content)}</div>
+            `;
+
+            if (tweet.image) {
+                tweetHTML += `
+                    <div class="tweet-image">
+                        <img src="${tweet.image}" alt="Tweet image">
+                    </div>
+                `;
+            }
+
+            tweetHTML += `
+                </div>
+            `;
+
+            tweetDiv.innerHTML = tweetHTML;
+
+            // Add delete button listener
+            const deleteBtn = tweetDiv.querySelector('.tweet-delete');
+            deleteBtn.addEventListener('click', () => deleteTweet(tweet.id));
+
+            // Add image click listener
+            const tweetImage = tweetDiv.querySelector('.tweet-image');
+            if (tweetImage) {
+                tweetImage.addEventListener('click', () => openImageModal(tweet.image));
+            }
+
+            return tweetDiv;
+        }
+
+        function formatTimestamp(date) {
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'now';
+            if (diffMins < 60) return `${diffMins}m`;
+            if (diffHours < 24) return `${diffHours}h`;
+            if (diffDays < 7) return `${diffDays}d`;
+            
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
+            });
+        }
+
+        function deleteTweet(tweetId) {
+            if (!confirm('Delete this post?')) {
+                return;
+            }
+
+            appState.tweets = appState.tweets.filter(t => t.id !== tweetId);
+            renderTimeline();
+            updateStateInHTML();
+        }
+
+        /* ===================================
+           IMAGE MODAL (for viewing full-size images)
+           =================================== */
+        function openImageModal(imageSrc) {
+            elements.modalImage.src = imageSrc;
+            elements.imageModal.classList.add('active');
+        }
+
+        function closeImageModal() {
+            elements.imageModal.classList.remove('active');
+            elements.modalImage.src = '';
+        }
+
+        /* ===================================
+           UTILITY FUNCTIONS
+           =================================== */
+        function escapeHTML(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        /* ===================================
+           UPDATE STATE IN HTML & LOCALSTORAGE
+           Data is saved to both the embedded script tag and localStorage
+           =================================== */
+        function updateStateInHTML() {
+            // Get or create the state script tag
+            let stateScript = document.getElementById('appStateData');
+            if (!stateScript) {
+                stateScript = document.createElement('script');
+                stateScript.id = 'appStateData';
+                stateScript.type = 'application/json';
+                document.body.appendChild(stateScript);
+            }
+
+            // Update the state in HTML
+            stateScript.textContent = JSON.stringify(appState, null, 2);
+            
+            // Also save to localStorage for PWA persistence
+            try {
+                localStorage.setItem('personalTwitterData', JSON.stringify(appState));
+            } catch (e) {
+                console.error('Failed to save to localStorage:', e);
+            }
+        }
+
+        /* ===================================
+           EVENT LISTENERS
+           =================================== */
+        function setupEventListeners() {
+            // Profile clicks - open file pickers
+            elements.profileBanner.addEventListener('click', () => elements.bannerInput.click());
+            elements.profilePicture.addEventListener('click', () => elements.profilePicInput.click());
+
+            // Banner image upload
+            elements.bannerInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                handleImageUpload(file, (imageData) => {
+                    appState.profile.bannerImage = imageData;
+                    elements.profileBanner.style.backgroundImage = `url(${imageData})`;
+                    updateStateInHTML();
+                });
+            });
+
+            // Profile picture upload
+            elements.profilePicInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                handleImageUpload(file, (imageData) => {
+                    appState.profile.profileImage = imageData;
+                    elements.profilePicture.style.backgroundImage = `url(${imageData})`;
+                    updateStateInHTML();
+                });
+            });
+
+            // Profile text editing
+            elements.profileName.addEventListener('blur', saveProfileData);
+            elements.profileHandle.addEventListener('blur', saveProfileData);
+            elements.profileBio.addEventListener('blur', saveProfileData);
+
+            // Prevent Enter key in profile fields (force blur instead)
+            [elements.profileName, elements.profileHandle, elements.profileBio].forEach(el => {
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        el.blur();
+                    }
+                });
+            });
+
+            // Tweet composer
+            elements.tweetTextarea.addEventListener('input', updateCharCounter);
+            elements.addImageBtn.addEventListener('click', () => elements.tweetImageInput.click());
+            
+            elements.tweetImageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                handleImageUpload(file, showComposerImage);
+            });
+
+            elements.removeComposerImage.addEventListener('click', removeComposerImageHandler);
+            elements.postBtn.addEventListener('click', postTweet);
+
+            // Post with Ctrl/Cmd + Enter
+            elements.tweetTextarea.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    postTweet();
+                }
+            });
+
+            // Image modal
+            elements.imageModal.addEventListener('click', closeImageModal);
+        }
+
+        /* ===================================
+           START THE APP
+           =================================== */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        /* ===================================
+           PWA FUNCTIONALITY
+           =================================== */
+        // Register Service Worker for offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Create service worker inline
+                const swCode = `
+const CACHE_NAME = 'personal-twitter-v1';
+
+self.addEventListener('install', (event) => {
+    self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+    self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+    // Let the browser handle the request normally
+    event.respondWith(fetch(event.request));
+});
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // Handle PWA install prompt
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.textContent = '📱 Install App';
+        installButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 12px 24px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            font-family: inherit;
+        `;
+        installButton.addEventListener('mouseover', () => {
+            installButton.style.backgroundColor = 'var(--accent-blue-hover)';
+        });
+        installButton.addEventListener('mouseout', () => {
+            installButton.style.backgroundColor = 'var(--accent-blue)';
+        });
+        
+        document.body.appendChild(installButton);
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show install button
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                return;
+            }
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to the install prompt: ${outcome}`);
+            // Clear the deferredPrompt
+            deferredPrompt = null;
+            // Hide the install button
+            installButton.style.display = 'none';
+        });
+
+        // Hide install button if app is already installed
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            installButton.style.display = 'none';
+            deferredPrompt = null;
+        });
+
+        // Check if running as PWA
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            console.log('Running as PWA');
+            installButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
