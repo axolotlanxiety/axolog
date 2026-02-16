@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Your personal Twitter-like journal">
+    <meta name="theme-color" content="#79d483">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MyTwitter">
+    <title>Personal Twitter</title>
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIlBlcnNvbmFsIFR3aXR0ZXIiLCAic2hvcnRfbmFtZSI6ICJNeVR3aXR0ZXIiLCAiZGVzY3JpcHRpb24iOiAiWW91ciBwZXJzb25hbCBUd2l0dGVyLWxpa2Ugam91cm5hbCIsICJzdGFydF91cmwiOiAiLiIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjdmNWRhIiwgInRoZW1lX2NvbG9yIjogIiM3OWQ0ODMiLCAib3JpZW50YXRpb24iOiAicG9ydHJhaXQtcHJpbWFyeSIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDE5MiAxOTInJTNFJTNDZGVmcyUzRSUzQ2xpbmVhckdyYWRpZW50IGlkPSdnMScgeDE9JzAlMjUnIHkxPScwJTI1JyB4Mj0nMTAwJTI1JyB5Mj0nMTAwJTI1JyUzRSUzQ3N0b3Agb2Zmc2V0PScwJTI1JyBzdHlsZT0nc3RvcC1jb2xvcjolMjM3OWQ0ODMnLyUzRSUzQ3N0b3Agb2Zmc2V0PScxMDAlMjUnIHN0eWxlPSdzdG9wLWNvbG9yOiUyMzZiYzI3NScvJTNFJTNDL2xpbmVhckdyYWRpZW50JTNFJTNDL2RlZnMlM0UlM0NyZWN0IGZpbGw9J3VybCglMjNnMSknIHdpZHRoPScxOTInIGhlaWdodD0nMTkyJyByeD0nNDAnLyUzRSUzQ3BhdGggZmlsbD0nJTIzZmZmJyBkPSdNMTU0LjcgNTkuM2MtNSAyLjItMTAuNCAzLjctMTYgNC40IDUuNy0zLjQgMTAuMS04LjggMTIuMi0xNS4zLTUuNCAzLjItMTEuMyA1LjUtMTcuNiA2LjctNS4xLTUuNC0xMi4zLTguOC0yMC4zLTguOC0xNS40IDAtMjcuOSAxMi41LTI3LjkgMjcuOSAwIDIuMi4yIDQuMy43IDYuMy0yMy4yLTEuMi00My43LTEyLjMtNTcuNS0yOS4yLTIuNCA0LjEtMy44IDguOC0zLjggMTMuOSAwIDkuNyA0LjkgMTguMiAxMi40IDIzLjItNC42LS4xLTguOS0xLjQtMTIuNi0zLjV2LjRjMCAxMy41IDkuNiAyNC44IDIyLjQgMjcuNC0yLjMuNi00LjggMS03LjMgMS0xLjggMC0zLjUtLjItNS4yLS41IDMuNSAxMSAxMy44IDE5IDI1LjkgMTkuMy05LjUgNy40LTIxLjUgMTEuOC0zNC41IDExLjgtMi4yIDAtNC40LS4xLTYuNi0uNCAxMi4zIDcuOSAyNi45IDEyLjUgNDIuNiAxMi41IDUxLjEgMCA3OS00Mi4zIDc5LTc5IDAtMS4yIDAtMi40LS4xLTMuNiA1LjQtMy45IDEwLjEtOC44IDEzLjgtMTQuNHonLyUzRSUzQy9zdmclM0UiLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA1MTIgNTEyJyUzRSUzQ2RlZnMlM0UlM0NsaW5lYXJHcmFkaWVudCBpZD0nZzInIHgxPScwJTI1JyB5MT0nMCUyNScgeDI9JzEwMCUyNScgeTI9JzEwMCUyNSclM0UlM0NzdG9wIG9mZnNldD0nMCUyNScgc3R5bGU9J3N0b3AtY29sb3I6JTIzNzlkNDgzJy8lM0UlM0NzdG9wIG9mZnNldD0nMTAwJTI1JyBzdHlsZT0nc3RvcC1jb2xvcjolMjM2YmMyNzUnLyUzRSUzQy9saW5lYXJHcmFkaWVudCUzRSUzQy9kZWZzJTNFJTNDcmVjdCBmaWxsPSd1cmwoJTIzZzIpJyB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgcng9JzEwMCcvJTNFJTNDcGF0aCBmaWxsPSclMjNmZmYnIGQ9J000MTIgMTcxYy0xMyA2LTI3IDEwLTQyIDExIDE1LTkgMjctMjMgMzItNDAtMTQgOC0zMCAxNC00NyAxNy0xMy0xNC0zMi0yMy01My0yMy00MCAwLTczIDMzLTczIDczIDAgNiAxIDExIDIgMTYtNjEtMy0xMTUtMzItMTUxLTc3LTYgMTEtMTAgMjMtMTAgMzYgMCAyNSAxMyA0OCAzMyA2MS0xMiAwLTIzLTQtMzMtOXYxYzAgMzUgMjUgNjUgNTkgNzItNiAyLTEzIDMtMTkgMy01IDAtOS0xLTE0LTEgOSAyOSAzNiA1MCA2OCA1MS0yNSAxOS01NyAzMS05MSAzMS02IDAtMTIgMC0xNy0xIDMyIDIxIDcxIDMzIDExMiAzMyAxMzUgMCAyMDktMTEyIDIwOS0yMDkgMC0zIDAtNiAwLTkgMTQtMTAgMjctMjMgMzctMzh6Jy8lM0UlM0Mvc3ZnJTNFIiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2379d483'/%3E%3Cstop offset='100%25' style='stop-color:%236bc275'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23g1)' width='192' height='192' rx='40'/%3E%3Cpath fill='%23fff' d='M154.7 59.3c-5 2.2-10.4 3.7-16 4.4 5.7-3.4 10.1-8.8 12.2-15.3-5.4 3.2-11.3 5.5-17.6 6.7-5.1-5.4-12.3-8.8-20.3-8.8-15.4 0-27.9 12.5-27.9 27.9 0 2.2.2 4.3.7 6.3-23.2-1.2-43.7-12.3-57.5-29.2-2.4 4.1-3.8 8.8-3.8 13.9 0 9.7 4.9 18.2 12.4 23.2-4.6-.1-8.9-1.4-12.6-3.5v.4c0 13.5 9.6 24.8 22.4 27.4-2.3.6-4.8 1-7.3 1-1.8 0-3.5-.2-5.2-.5 3.5 11 13.8 19 25.9 19.3-9.5 7.4-21.5 11.8-34.5 11.8-2.2 0-4.4-.1-6.6-.4 12.3 7.9 26.9 12.5 42.6 12.5 51.1 0 79-42.3 79-79 0-1.2 0-2.4-.1-3.6 5.4-3.9 10.1-8.8 13.8-14.4z'/%3E%3C/svg%3E">
+    <style>
+        /* ===================================
+           GLOBAL STYLES & VARIABLES
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color palette centered around #79d483 */
+            --bg-primary: #f7f5da;
+            --bg-secondary: #e8f5e3;
+            --bg-hover: #d4eed1;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --border-color: #a8daa3;
+            --accent-green: #79d483;
+            --accent-green-hover: #6bc275;
+            --accent-green-light: #8fe094;
+            --accent-dark-green: #5cb866;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #f7f5da 0%, #e8f5e3 100%);
+            color: var(--text-primary);
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            overscroll-behavior-y: contain;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(121, 212, 131, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(121, 212, 131, 0.6);
+            }
+        }
+
+        /* ===================================
+           SETTINGS MENU
+           =================================== */
+        .settings-icon {
+            position: fixed;
+            top: calc(16px + env(safe-area-inset-top));
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .settings-icon:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 4px 16px rgba(121, 212, 131, 0.3);
+        }
+
+        .settings-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .settings-modal.active {
+            display: flex;
+        }
+
+        .settings-content {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .settings-header h2 {
+            font-size: 24px;
+            color: var(--text-primary);
+        }
+
+        .close-settings {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--bg-secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .close-settings:hover {
+            background: var(--bg-hover);
+            transform: scale(1.1);
+        }
+
+        .settings-section {
+            margin-bottom: 20px;
+        }
+
+        .settings-section h3 {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .settings-button {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .settings-button:hover {
+            background: var(--bg-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(121, 212, 131, 0.2);
+        }
+
+        .settings-button.danger {
+            background: #fee;
+            border-color: #fcc;
+        }
+
+        .settings-button.danger:hover {
+            background: #fdd;
+        }
+
+        .settings-button.primary {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: white;
+        }
+
+        .settings-button.primary:hover {
+            background: var(--accent-green-hover);
+            border-color: var(--accent-green-hover);
+        }
+
+        .settings-info {
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+        }
+
+        /* Hidden file input */
+        input[type="file"].hidden-input {
+            display: none;
+        }
+
+        /* ===================================
+           PROFILE SECTION
+           =================================== */
+        .profile-section {
+            position: relative;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e8f5e3 0%, #d4eed1 100%);
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 4px 20px rgba(121, 212, 131, 0.1);
+        }
+
+        .profile-banner {
+            width: 100%;
+            height: 0;
+            padding-bottom: 33.33%;
+            background: linear-gradient(135deg, #79d483 0%, #6bc275 50%, #5cb866 100%);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            position: relative;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .profile-banner:hover::after {
+            content: 'Click to change banner';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .profile-info {
+            padding: 0 16px;
+            position: relative;
+        }
+
+        .profile-picture-container {
+            position: relative;
+            width: 134px;
+            height: 134px;
+            margin-top: -67px;
+            margin-bottom: 12px;
+        }
+
+        .profile-picture {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+            background: linear-gradient(135deg, #79d483 0%, #8fe094 100%);
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(121, 212, 131, 0.4);
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(121, 212, 131, 0.6);
+        }
+
+        .profile-picture:hover::after {
+            content: 'Change photo';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            width: 100px;
+            text-align: center;
+        }
+
+        .profile-details {
+            margin-top: 12px;
+        }
+
+        .profile-name {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 28px;
+            outline: none;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .profile-name:hover,
+        .profile-name:focus {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: var(--accent-green);
+        }
+
+        .profile-handle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            min-height: 24px;
+            outline: none;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            margin-bottom: 12px;
+        }
+
+        .profile-handle:hover,
+        .profile-handle:focus {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: var(--accent-green);
+        }
+
+        .profile-bio {
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 12px 0;
+            padding: 8px;
+            border-radius: 4px;
+            min-height: 40px;
+            outline: none;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .profile-bio:hover,
+        .profile-bio:focus {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: var(--accent-green);
+        }
+
+        .profile-bio:empty::before {
+            content: 'Click to add bio...';
+            color: var(--text-secondary);
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+            padding: 12px 8px;
+            border-top: 1px solid rgba(121, 212, 131, 0.2);
+            margin-top: 12px;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* ===================================
+           TWEET COMPOSER
+           =================================== */
+        .composer {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 20px 16px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .composer-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .composer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #79d483 0%, #8fe094 100%);
+            flex-shrink: 0;
+        }
+
+        .composer-input-area {
+            flex: 1;
+        }
+
+        .tweet-textarea {
+            width: 100%;
+            min-height: 80px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            padding: 8px 0;
+        }
+
+        .tweet-textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .composer-image-preview {
+            display: none;
+            position: relative;
+            margin: 12px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            max-height: 400px;
+        }
+
+        .composer-image-preview.active {
+            display: block;
+        }
+
+        .composer-image-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .remove-composer-image {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .remove-composer-image:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        .composer-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .composer-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--bg-secondary);
+        }
+
+        .char-counter {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-right: 12px;
+        }
+
+        .char-counter.warning {
+            color: #f59e0b;
+        }
+
+        .char-counter.danger {
+            color: #ef4444;
+        }
+
+        .post-btn {
+            padding: 8px 20px;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .post-btn:hover:not(:disabled) {
+            background: var(--accent-green-hover);
+        }
+
+        .post-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ===================================
+           FEED
+           =================================== */
+        .feed {
+            padding: 0 16px 60px 16px;
+        }
+
+        .tweet {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tweet:hover {
+            box-shadow: 0 4px 16px rgba(121, 212, 131, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .tweet-header {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .tweet-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #79d483 0%, #8fe094 100%);
+            flex-shrink: 0;
+        }
+
+        .tweet-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tweet-author {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .tweet-handle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .tweet-time {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-left: 4px;
+        }
+
+        .tweet-menu {
+            margin-left: auto;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .tweet-menu:hover {
+            background: var(--bg-secondary);
+        }
+
+        .tweet-content {
+            margin: 12px 0;
+            font-size: 15px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .tweet-image {
+            margin: 12px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tweet-image:hover {
+            opacity: 0.9;
+        }
+
+        .tweet-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .tweet-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tweet-action {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border: none;
+            background: transparent;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+
+        .tweet-action:hover {
+            background: var(--bg-secondary);
+            color: var(--accent-green);
+        }
+
+        .tweet-action.liked {
+            color: #f43f5e;
+        }
+
+        /* ===================================
+           IMAGE MODAL
+           =================================== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* ===================================
+           DROPDOWN MENU
+           =================================== */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            min-width: 150px;
+            z-index: 100;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-secondary);
+        }
+
+        .dropdown-item.danger {
+            color: #ef4444;
+        }
+
+        .dropdown-item.danger:hover {
+            background: #fee;
+        }
+
+        /* ===================================
+           UTILITY CLASSES
+           =================================== */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-green);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green-hover);
+        }
+    </style>
+</head>
+<body>
+    <!-- Settings Icon -->
+    <div class="settings-icon" id="settingsIcon">
+        ⚙️
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="close-settings" id="closeSettings">×</button>
+            </div>
+
+            <div class="settings-section">
+                <h3>📦 Data Management</h3>
+                <button class="settings-button primary" id="exportDataBtn">
+                    💾 Export All Data
+                </button>
+                <button class="settings-button" id="importDataBtn">
+                    📂 Import Data
+                </button>
+                <input type="file" id="importDataInput" class="hidden-input" accept=".json">
+                <div class="settings-info">
+                    Export your posts to save a backup. Import to restore from a previous backup.
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>🔄 Sync Status</h3>
+                <div class="settings-info" id="syncStatus">
+                    <div><strong>Storage:</strong> Browser (LocalStorage)</div>
+                    <div id="postCount"><strong>Posts:</strong> 0</div>
+                    <div><strong>Last Updated:</strong> <span id="lastUpdate">Never</span></div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>⚠️ Danger Zone</h3>
+                <button class="settings-button danger" id="clearDataBtn">
+                    🗑️ Clear All Data
+                </button>
+                <div class="settings-info">
+                    This will permanently delete all your posts and profile data. This cannot be undone!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+        <div class="profile-banner" id="profileBanner"></div>
+        <input type="file" id="bannerInput" class="hidden-input" accept="image/*">
+        
+        <div class="profile-info">
+            <div class="profile-picture-container">
+                <div class="profile-picture" id="profilePicture"></div>
+                <input type="file" id="profilePicInput" class="hidden-input" accept="image/*">
+            </div>
+            
+            <div class="profile-details">
+                <div class="profile-name" id="profileName" contenteditable="true">Your Name</div>
+                <div class="profile-handle" id="profileHandle" contenteditable="true">@yourhandle</div>
+                <div class="profile-bio" id="profileBio" contenteditable="true"></div>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="tweetCount">0</div>
+                        <div class="stat-label">Posts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tweet Composer -->
+    <div class="composer">
+        <div class="composer-header">
+            <div class="composer-avatar" id="composerAvatar"></div>
+            <div class="composer-input-area">
+                <textarea 
+                    class="tweet-textarea" 
+                    id="tweetTextarea" 
+                    placeholder="What's happening?"
+                    maxlength="280"
+                ></textarea>
+                
+                <div class="composer-image-preview" id="composerImagePreview">
+                    <img id="composerImage" src="" alt="Preview">
+                    <button class="remove-composer-image" id="removeComposerImage">×</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="composer-footer">
+            <div class="composer-actions">
+                <button class="action-btn" id="addImageBtn" title="Add image">🖼️</button>
+                <input type="file" id="tweetImageInput" class="hidden-input" accept="image/*">
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="char-counter" id="charCounter">0 / 280</span>
+                <button class="post-btn" id="postBtn" disabled>Post</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feed -->
+    <div class="feed" id="feed"></div>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <img id="modalImage" src="" alt="Full size image">
+    </div>
+
+    <script>
+        /* ===================================
+           APP STATE
+           =================================== */
+        let appState = {
+            profile: {
+                name: 'Your Name',
+                handle: '@yourhandle',
+                bio: '',
+                profileImage: '',
+                bannerImage: ''
+            },
+            tweets: [],
+            currentComposerImage: null
+        };
+
+        /* ===================================
+           DOM ELEMENTS
+           =================================== */
+        const elements = {
+            // Settings
+            settingsIcon: document.getElementById('settingsIcon'),
+            settingsModal: document.getElementById('settingsModal'),
+            closeSettings: document.getElementById('closeSettings'),
+            exportDataBtn: document.getElementById('exportDataBtn'),
+            importDataBtn: document.getElementById('importDataBtn'),
+            importDataInput: document.getElementById('importDataInput'),
+            clearDataBtn: document.getElementById('clearDataBtn'),
+            syncStatus: document.getElementById('syncStatus'),
+            postCount: document.getElementById('postCount'),
+            lastUpdate: document.getElementById('lastUpdate'),
+            
+            // Profile
+            profileBanner: document.getElementById('profileBanner'),
+            bannerInput: document.getElementById('bannerInput'),
+            profilePicture: document.getElementById('profilePicture'),
+            profilePicInput: document.getElementById('profilePicInput'),
+            profileName: document.getElementById('profileName'),
+            profileHandle: document.getElementById('profileHandle'),
+            profileBio: document.getElementById('profileBio'),
+            tweetCount: document.getElementById('tweetCount'),
+            
+            // Composer
+            composerAvatar: document.getElementById('composerAvatar'),
+            tweetTextarea: document.getElementById('tweetTextarea'),
+            addImageBtn: document.getElementById('addImageBtn'),
+            tweetImageInput: document.getElementById('tweetImageInput'),
+            composerImagePreview: document.getElementById('composerImagePreview'),
+            composerImage: document.getElementById('composerImage'),
+            removeComposerImage: document.getElementById('removeComposerImage'),
+            charCounter: document.getElementById('charCounter'),
+            postBtn: document.getElementById('postBtn'),
+            
+            // Feed
+            feed: document.getElementById('feed'),
+            
+            // Modal
+            imageModal: document.getElementById('imageModal'),
+            modalImage: document.getElementById('modalImage')
+        };
+
+        /* ===================================
+           UTILITY FUNCTIONS
+           =================================== */
+        function generateId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        function formatTime(timestamp) {
+            const now = Date.now();
+            const diff = now - timestamp;
+            
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            
+            if (seconds < 60) return `${seconds}s`;
+            if (minutes < 60) return `${minutes}m`;
+            if (hours < 24) return `${hours}h`;
+            return `${days}d`;
+        }
+
+        function compressImage(file, maxWidth, maxHeight, quality, callback) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+                    
+                    if (width > height) {
+                        if (width > maxWidth) {
+                            height = (height * maxWidth) / width;
+                            width = maxWidth;
+                        }
+                    } else {
+                        if (height > maxHeight) {
+                            width = (width * maxHeight) / height;
+                            height = maxHeight;
+                        }
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    callback(canvas.toDataURL('image/jpeg', quality));
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        /* ===================================
+           STORAGE FUNCTIONS
+           =================================== */
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem('personalTwitterData', JSON.stringify(appState));
+                updateSyncStatus();
+                console.log('Data saved to localStorage');
+            } catch (e) {
+                console.error('Failed to save to localStorage:', e);
+                alert('Failed to save data. Your storage might be full.');
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem('personalTwitterData');
+                if (saved) {
+                    appState = JSON.parse(saved);
+                    console.log('Loaded from localStorage:', appState.tweets.length, 'tweets');
+                    return true;
+                }
+            } catch (e) {
+                console.error('Failed to load from localStorage:', e);
+            }
+            return false;
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(appState, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `twitter-backup-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            alert('✅ Data exported successfully!');
+        }
+
+        function importData() {
+            const file = elements.importDataInput.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    
+                    // Validate the data structure
+                    if (!imported.profile || !imported.tweets) {
+                        throw new Error('Invalid data format');
+                    }
+                    
+                    if (confirm(`Import ${imported.tweets.length} posts? This will replace all current data.`)) {
+                        appState = imported;
+                        saveToLocalStorage();
+                        renderAll();
+                        alert('✅ Data imported successfully!');
+                        elements.settingsModal.classList.remove('active');
+                    }
+                } catch (error) {
+                    console.error('Import error:', error);
+                    alert('❌ Failed to import data. Please check the file format.');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function clearAllData() {
+            if (confirm('⚠️ Are you sure? This will delete ALL your posts and profile data. This cannot be undone!')) {
+                if (confirm('⚠️⚠️ Really delete everything? Last chance!')) {
+                    localStorage.removeItem('personalTwitterData');
+                    appState = {
+                        profile: {
+                            name: 'Your Name',
+                            handle: '@yourhandle',
+                            bio: '',
+                            profileImage: '',
+                            bannerImage: ''
+                        },
+                        tweets: [],
+                        currentComposerImage: null
+                    };
+                    renderAll();
+                    alert('✅ All data has been cleared.');
+                    elements.settingsModal.classList.remove('active');
+                }
+            }
+        }
+
+        function updateSyncStatus() {
+            elements.postCount.innerHTML = `<strong>Posts:</strong> ${appState.tweets.length}`;
+            elements.lastUpdate.textContent = new Date().toLocaleString();
+        }
+
+        /* ===================================
+           PROFILE FUNCTIONS
+           =================================== */
+        function saveProfileData() {
+            appState.profile.name = elements.profileName.textContent.trim() || 'Your Name';
+            appState.profile.handle = elements.profileHandle.textContent.trim() || '@yourhandle';
+            appState.profile.bio = elements.profileBio.textContent.trim();
+            saveToLocalStorage();
+        }
+
+        function updateProfileUI() {
+            elements.profileName.textContent = appState.profile.name;
+            elements.profileHandle.textContent = appState.profile.handle;
+            elements.profileBio.textContent = appState.profile.bio;
+            
+            if (appState.profile.profileImage) {
+                elements.profilePicture.style.backgroundImage = `url(${appState.profile.profileImage})`;
+                elements.composerAvatar.style.backgroundImage = `url(${appState.profile.profileImage})`;
+            }
+            
+            if (appState.profile.bannerImage) {
+                elements.profileBanner.style.backgroundImage = `url(${appState.profile.bannerImage})`;
+            }
+        }
+
+        /* ===================================
+           COMPOSER FUNCTIONS
+           =================================== */
+        function updateCharCounter() {
+            const length = elements.tweetTextarea.value.length;
+            elements.charCounter.textContent = `${length} / 280`;
+            
+            if (length > 260) {
+                elements.charCounter.classList.add('warning');
+            } else {
+                elements.charCounter.classList.remove('warning');
+            }
+            
+            if (length > 280) {
+                elements.charCounter.classList.add('danger');
+            } else {
+                elements.charCounter.classList.remove('danger');
+            }
+            
+            elements.postBtn.disabled = length === 0 || length > 280;
+        }
+
+        function showComposerImage(imageData) {
+            appState.currentComposerImage = imageData;
+            elements.composerImage.src = imageData;
+            elements.composerImagePreview.classList.add('active');
+        }
+
+        function removeComposerImage() {
+            appState.currentComposerImage = null;
+            elements.composerImage.src = '';
+            elements.composerImagePreview.classList.remove('active');
+            elements.tweetImageInput.value = '';
+        }
+
+        function postTweet() {
+            const text = elements.tweetTextarea.value.trim();
+            if (!text) return;
+            
+            const tweet = {
+                id: generateId(),
+                text: text,
+                image: appState.currentComposerImage,
+                timestamp: Date.now(),
+                likes: 0,
+                liked: false
+            };
+            
+            appState.tweets.unshift(tweet);
+            saveToLocalStorage();
+            
+            // Reset composer
+            elements.tweetTextarea.value = '';
+            removeComposerImage();
+            updateCharCounter();
+            
+            // Update UI
+            renderFeed();
+            updateStats();
+        }
+
+        /* ===================================
+           FEED FUNCTIONS
+           =================================== */
+        function renderFeed() {
+            elements.feed.innerHTML = '';
+            
+            appState.tweets.forEach(tweet => {
+                const tweetEl = createTweetElement(tweet);
+                elements.feed.appendChild(tweetEl);
+            });
+        }
+
+        function createTweetElement(tweet) {
+            const div = document.createElement('div');
+            div.className = 'tweet';
+            div.innerHTML = `
+                <div class="tweet-header">
+                    <div class="tweet-avatar" style="${appState.profile.profileImage ? `background-image: url(${appState.profile.profileImage})` : ''}"></div>
+                    <div class="tweet-meta">
+                        <div>
+                            <span class="tweet-author">${appState.profile.name}</span>
+                            <span class="tweet-handle">${appState.profile.handle}</span>
+                            <span class="tweet-time">· ${formatTime(tweet.timestamp)}</span>
+                        </div>
+                    </div>
+                    <button class="tweet-menu" data-tweet-id="${tweet.id}">⋯</button>
+                    <div class="dropdown-menu" id="menu-${tweet.id}">
+                        <button class="dropdown-item danger" data-action="delete" data-tweet-id="${tweet.id}">🗑️ Delete</button>
+                    </div>
+                </div>
+                
+                <div class="tweet-content">${tweet.text}</div>
+                
+                ${tweet.image ? `
+                    <div class="tweet-image" data-image="${tweet.image}">
+                        <img src="${tweet.image}" alt="Tweet image">
+                    </div>
+                ` : ''}
+                
+                <div class="tweet-actions">
+                    <button class="tweet-action ${tweet.liked ? 'liked' : ''}" data-action="like" data-tweet-id="${tweet.id}">
+                        <span>${tweet.liked ? '❤️' : '🤍'}</span>
+                        <span>${tweet.likes}</span>
+                    </button>
+                </div>
+            `;
+            
+            return div;
+        }
+
+        function deleteTweet(id) {
+            if (confirm('Delete this post?')) {
+                appState.tweets = appState.tweets.filter(t => t.id !== id);
+                saveToLocalStorage();
+                renderFeed();
+                updateStats();
+            }
+        }
+
+        function toggleLike(id) {
+            const tweet = appState.tweets.find(t => t.id === id);
+            if (tweet) {
+                tweet.liked = !tweet.liked;
+                tweet.likes += tweet.liked ? 1 : -1;
+                saveToLocalStorage();
+                renderFeed();
+            }
+        }
+
+        function updateStats() {
+            elements.tweetCount.textContent = appState.tweets.length;
+        }
+
+        /* ===================================
+           IMAGE MODAL
+           =================================== */
+        function openImageModal(imageSrc) {
+            elements.modalImage.src = imageSrc;
+            elements.imageModal.classList.add('active');
+        }
+
+        function closeImageModal() {
+            elements.imageModal.classList.remove('active');
+        }
+
+        /* ===================================
+           EVENT LISTENERS
+           =================================== */
+        function setupEventListeners() {
+            // Settings
+            elements.settingsIcon.addEventListener('click', () => {
+                elements.settingsModal.classList.add('active');
+                updateSyncStatus();
+            });
+            
+            elements.closeSettings.addEventListener('click', () => {
+                elements.settingsModal.classList.remove('active');
+            });
+            
+            elements.settingsModal.addEventListener('click', (e) => {
+                if (e.target === elements.settingsModal) {
+                    elements.settingsModal.classList.remove('active');
+                }
+            });
+            
+            elements.exportDataBtn.addEventListener('click', exportData);
+            elements.importDataBtn.addEventListener('click', () => {
+                elements.importDataInput.click();
+            });
+            elements.importDataInput.addEventListener('change', importData);
+            elements.clearDataBtn.addEventListener('click', clearAllData);
+            
+            // Profile
+            elements.profileBanner.addEventListener('click', () => {
+                elements.bannerInput.click();
+            });
+            
+            elements.bannerInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    compressImage(file, 1600, 600, 0.75, (imageData) => {
+                        appState.profile.bannerImage = imageData;
+                        elements.profileBanner.style.backgroundImage = `url(${imageData})`;
+                        saveToLocalStorage();
+                    });
+                }
+            });
+            
+            elements.profilePicture.addEventListener('click', () => {
+                elements.profilePicInput.click();
+            });
+            
+            elements.profilePicInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    compressImage(file, 400, 400, 0.8, (imageData) => {
+                        appState.profile.profileImage = imageData;
+                        elements.profilePicture.style.backgroundImage = `url(${imageData})`;
+                        elements.composerAvatar.style.backgroundImage = `url(${imageData})`;
+                        saveToLocalStorage();
+                        renderFeed(); // Update all tweet avatars
+                    });
+                }
+            });
+            
+            elements.profileName.addEventListener('blur', saveProfileData);
+            elements.profileHandle.addEventListener('blur', saveProfileData);
+            elements.profileBio.addEventListener('blur', saveProfileData);
+            
+            [elements.profileName, elements.profileHandle, elements.profileBio].forEach(el => {
+                el.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        el.blur();
+                    }
+                });
+            });
+            
+            // Composer
+            elements.tweetTextarea.addEventListener('input', updateCharCounter);
+            elements.addImageBtn.addEventListener('click', () => {
+                elements.tweetImageInput.click();
+            });
+            elements.tweetImageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    compressImage(file, 1200, 1200, 0.7, showComposerImage);
+                }
+            });
+            elements.removeComposerImage.addEventListener('click', removeComposerImage);
+            elements.postBtn.addEventListener('click', postTweet);
+            elements.tweetTextarea.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                    postTweet();
+                }
+            });
+            
+            // Feed (event delegation)
+            elements.feed.addEventListener('click', (e) => {
+                const target = e.target.closest('[data-action]');
+                if (!target) {
+                    // Close any open menus when clicking outside
+                    document.querySelectorAll('.dropdown-menu.active').forEach(menu => {
+                        menu.classList.remove('active');
+                    });
+                    return;
+                }
+                
+                const action = target.dataset.action;
+                const tweetId = target.dataset.tweetId;
+                
+                if (action === 'like') {
+                    toggleLike(tweetId);
+                } else if (action === 'delete') {
+                    deleteTweet(tweetId);
+                }
+            });
+            
+            // Tweet menu
+            elements.feed.addEventListener('click', (e) => {
+                const menuBtn = e.target.closest('.tweet-menu');
+                if (menuBtn) {
+                    e.stopPropagation();
+                    const tweetId = menuBtn.dataset.tweetId;
+                    const menu = document.getElementById(`menu-${tweetId}`);
+                    
+                    // Close all other menus
+                    document.querySelectorAll('.dropdown-menu.active').forEach(m => {
+                        if (m !== menu) m.classList.remove('active');
+                    });
+                    
+                    menu.classList.toggle('active');
+                }
+            });
+            
+            // Image modal
+            elements.feed.addEventListener('click', (e) => {
+                const imageEl = e.target.closest('.tweet-image');
+                if (imageEl) {
+                    openImageModal(imageEl.dataset.image);
+                }
+            });
+            
+            elements.imageModal.addEventListener('click', closeImageModal);
+        }
+
+        /* ===================================
+           RENDER ALL
+           =================================== */
+        function renderAll() {
+            updateProfileUI();
+            renderFeed();
+            updateStats();
+            updateSyncStatus();
+        }
+
+        /* ===================================
+           INITIALIZATION
+           =================================== */
+        function init() {
+            // Load data
+            const loaded = loadFromLocalStorage();
+            if (!loaded) {
+                console.log('No saved data found, using default state');
+            }
+            
+            // Setup
+            setupEventListeners();
+            renderAll();
+            
+            console.log('App initialized with', appState.tweets.length, 'tweets');
+        }
+
+        // Start the app
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+
+        /* ===================================
+           PWA FUNCTIONALITY
+           =================================== */
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swCode = `
+const CACHE_NAME = 'personal-twitter-v1';
+
+self.addEventListener('install', (event) => {
+    self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+    self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+    event.respondWith(fetch(event.request));
+});
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('Service Worker registered');
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+
+        // PWA Install Button
+        let deferredPrompt;
+        const installButton = document.createElement('button');
+        installButton.textContent = '🌿 Install App';
+        installButton.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #79d483 0%, #6bc275 100%);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            padding: 14px 32px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(121, 212, 131, 0.4);
+            z-index: 1000;
+            display: none;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        `;
+        
+        installButton.addEventListener('mouseover', () => {
+            installButton.style.transform = 'translateX(-50%) translateY(-4px)';
+            installButton.style.boxShadow = '0 12px 28px rgba(121, 212, 131, 0.5)';
+        });
+        installButton.addEventListener('mouseout', () => {
+            installButton.style.transform = 'translateX(-50%) translateY(0)';
+            installButton.style.boxShadow = '0 8px 20px rgba(121, 212, 131, 0.4)';
+        });
+        
+        document.body.appendChild(installButton);
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block';
+        });
+
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response: ${outcome}`);
+            deferredPrompt = null;
+            installButton.style.display = 'none';
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA installed');
+            installButton.style.display = 'none';
+            deferredPrompt = null;
+        });
+
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            installButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
